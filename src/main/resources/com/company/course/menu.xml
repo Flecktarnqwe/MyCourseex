@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/flowui/menu">
+
+    <menu id="application" title="msg://com.company.course/menu.application.title" opened="true">
+        <item view="User.list" title="msg://com.company.course.view.user/UserListView.title"/>
+        <item view="Category.list" title="msg://com.company.course.view.category/categoryListView.title"/>
+        <item view="IncomingShipment.list"
+              title="msg://com.company.course.view.incomingshipment/incomingShipmentListView.title"/>
+        <item view="IncomingShipmentDetail.list"
+              title="msg://com.company.course.view.incomingshipmentdetail/incomingShipmentDetailListView.title"/>
+        <item view="OutgoingShipment.list"
+              title="msg://com.company.course.view.outgoingshipment/outgoingShipmentListView.title"/>
+        <item view="OutgoingShipmentDetail.list"
+              title="msg://com.company.course.view.outgoingshipmentdetail/outgoingShipmentDetailListView.title"/>
+        <item view="Product.list" title="msg://com.company.course.view.product/productListView.title"/>
+        <item view="StorageLocation.list"
+              title="msg://com.company.course.view.storagelocation/storageLocationListView.title"/>
+        <item view="Supplier.list" title="msg://com.company.course.view.supplier/supplierListView.title"/>
+        <item view="Warehouse.list" title="msg://com.company.course.view.warehouse/warehouseListView.title"/>
+    </menu>
+
+</menu-config>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:c="http://jmix.io/schema/flowui/jpql-condition"
+      title="msg://storageLocationListView.title"
+      focusComponent="storageLocationsDataGrid">
+    <data>
+        <collection id="storageLocationsDc"
+                    class="com.company.course.entity.StorageLocation">
+            <fetchPlan extends="_base"/>
+            <loader id="storageLocationsDl" readOnly="true">
+                <query>
+                    <![CDATA[select e from StorageLocation e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <urlQueryParameters>
+            <genericFilter component="genericFilter"/>
+            <pagination component="pagination"/>
+        </urlQueryParameters>
+    </facets>
+    <actions>
+        <action id="selectAction" type="lookup_select"/>
+        <action id="discardAction" type="lookup_discard"/>
+    </actions>
+    <layout>
+        <genericFilter id="genericFilter"
+                       dataLoader="storageLocationsDl">
+            <properties include=".*"/>
+        </genericFilter>
+        <hbox id="buttonsPanel" classNames="buttons-panel">
+            <button id="createButton" action="storageLocationsDataGrid.create"/>
+            <button id="editButton" action="storageLocationsDataGrid.edit"/>
+            <button id="removeButton" action="storageLocationsDataGrid.remove"/>
+            <simplePagination id="pagination" dataLoader="storageLocationsDl"/>
+        </hbox>
+        <dataGrid id="storageLocationsDataGrid"
+                  width="100%"
+                  minHeight="20em"
+                  dataContainer="storageLocationsDc"
+                  columnReorderingAllowed="true">
+            <actions>
+                <action id="create" type="list_create"/>
+                <action id="edit" type="list_edit"/>
+                <action id="remove" type="list_remove"/>
+            </actions>
+            <columns resizable="true">
+                <column property="code"/>
+                <column property="description"/>
+                <column property="capacity"/>
+                <column property="currentStockLevel"/>
+            </columns>
+        </dataGrid>
+        <hbox id="lookupActions" visible="false">
+            <button id="selectButton" action="selectAction"/>
+            <button id="discardButton" action="discardAction"/>
+        </hbox>
+    </layout>
+</view>
